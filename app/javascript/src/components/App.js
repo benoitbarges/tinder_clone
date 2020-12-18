@@ -1,6 +1,10 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { setCurrentUser } from '../actions/currentUser'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+
+import Profile from './Profile'
+import Navbar from './Navbar'
 
 export default function App () {
 
@@ -14,8 +18,14 @@ export default function App () {
   }, [dispatch])
 
   return (
-   <div>
-     <h1>React</h1>
-   </div>
+    <div>
+      <Router>
+        <Switch>
+          <Route exact path='/' component={Profile} />
+        </Switch>
+
+        <Navbar />
+      </Router>
+    </div>
   )
 }

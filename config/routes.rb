@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   devise_for :users
 
-  root to: 'pages#home'
+  root to: 'pages#app'
 
   # API routing
   namespace :api, defaults: { format: :json } do

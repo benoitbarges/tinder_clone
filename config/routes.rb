@@ -3,7 +3,15 @@ Rails.application.routes.draw do
   resources :user_matches
   resources :matches
   resources :likes
+
+
   devise_for :users
+
   root to: 'pages#home'
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+
+  # API routing
+  namespace :api, defaults: { format: :json } do
+    resources :users
+    get 'current', to: 'users#current'
+  end
 end

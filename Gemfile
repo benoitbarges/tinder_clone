@@ -34,6 +34,8 @@ gem 'geocoder'
 
 gem 'autoprefixer-rails'
 
+gem 'simple_token_authentication'
+
 gem 'simple_form'
 group :development, :test do  gem 'pry-byebug'
   gem 'pry-rails'

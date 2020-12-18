@@ -1,0 +1,22 @@
+#profile {
+  position: relative;;
+
+  .profile-photo {
+    width: 100vw;
+    height: 50vh;
+    object-fit: cover;
+  }
+
+  .profile-infos {
+    background: white;
+    position: absolute;
+    top: 134%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 86vw;
+    height: 84%;
+    border-radius: $border-radius;
+    padding: 6%;
+  }
+}
+

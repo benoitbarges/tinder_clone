@@ -97,8 +97,6 @@ GEM
     erubi (1.10.0)
     execjs (2.7.0)
     ffi (1.13.1)
-    font-awesome-sass (4.4.0)
-      sass (>= 3.2)
     geocoder (1.6.3)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
@@ -191,11 +189,6 @@ GEM
       mime-types (>= 1.16, < 4.0)
       netrc (~> 0.8)
     rubyzip (2.3.0)
-    sass (3.7.4)
-      sass-listen (~> 4.0.0)
-    sass-listen (4.0.0)
-      rb-fsevent (~> 0.9, >= 0.9.4)
-      rb-inotify (~> 0.9, >= 0.9.7)
     sass-rails (6.0.0)
       sassc-rails (~> 2.1, >= 2.1.1)
     sassc (2.4.0)
@@ -212,6 +205,10 @@ GEM
     simple_form (5.0.3)
       actionpack (>= 5.0)
       activemodel (>= 5.0)
+    simple_token_authentication (1.17.0)
+      actionmailer (>= 3.2.6, < 7)
+      actionpack (>= 3.2.6, < 7)
+      devise (>= 3.2, < 6)
     spring (2.1.1)
     spring-watcher-listen (2.0.1)
       listen (>= 2.7, < 4.0)
@@ -267,7 +264,6 @@ DEPENDENCIES
   cloudinary (~> 1.16.0)
   devise
   dotenv-rails
-  font-awesome-sass (~> 4.4.0)
   geocoder
   jbuilder (~> 2.7)
   listen (~> 3.2)
@@ -280,9 +276,9 @@ DEPENDENCIES
   sass-rails (>= 6)
   selenium-webdriver
   simple_form
+  simple_token_authentication
   spring
   spring-watcher-listen (~> 2.0.0)
-  sprockets
   turbolinks (~> 5)
   tzinfo-data
   web-console (>= 3.3.0)

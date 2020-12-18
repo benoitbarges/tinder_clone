@@ -1,0 +1,19 @@
+.like-card {
+  background: white;
+  transform: translate(-50%,-55%);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 86vw;
+  height: 82vh;
+  border-radius: $border-radius;
+  padding: 8%;
+
+  .like-card-photo {
+    width: 110%;
+    height: 76%;
+    object-fit: cover;
+    border-radius: $border-radius;
+    transform: translate(-4%, -3%);
+  }
+}

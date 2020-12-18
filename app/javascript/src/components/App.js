@@ -1,31 +1,34 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { setCurrentUser } from '../actions/currentUser'
+import { setUsers } from '../actions/users'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
 import Profile from './Profile'
 import Navbar from './Navbar'
+import LikeCard from './LikeCard'
 
 export default function App () {
-
   const dispatch = useDispatch()
+  const loading = useSelector(state => state.currentUser === null)
 
   const store = useSelector(store => store)
   console.log(store)
 
   React.useEffect(() => {
     dispatch(setCurrentUser())
+    dispatch(setUsers())
   }, [dispatch])
 
   return (
-    <div>
-      <Router>
+    <Router>
+      {!loading &&
         <Switch>
-          <Route exact path='/' component={Profile} />
+          <Route exact path='/' component={LikeCard} />
+          <Route  path='/profile' component={Profile} />
         </Switch>
-
-        <Navbar />
-      </Router>
-    </div>
+      }
+      <Navbar />
+    </Router>
   )
 }

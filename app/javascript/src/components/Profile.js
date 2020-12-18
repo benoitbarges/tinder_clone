@@ -1,17 +1,33 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
+import { BiMap } from 'react-icons/bi'
 
 export default function Profile() {
-  const user = useSelector(state => state.currentUser)
-  console.log(user)
+  const currentUser = useSelector(state => state.currentUser)
 
-  if (!user) {
+  const { infos, photos } = currentUser
+
+  if (!currentUser) {
     return <h1>Loading...</h1>
   }
 
   return (
-    <div>
-      <h1>{user.first_name}</h1>
+    <div id='profile'>
+      <img
+        src={photos[0]}
+        alt={`${infos.first_name}'s photo`}
+        className='profile-photo'
+      />
+      <div className='profile-infos'>
+        <h3 className='text-center'>{infos.first_name}</h3>
+        <p>{infos.age}</p>
+        <ul>
+          <li>
+            <BiMap />
+            <span>{infos.location}</span>
+          </li>
+        </ul>
+      </div>
     </div>
   )
 }

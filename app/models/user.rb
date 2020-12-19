@@ -15,5 +15,7 @@ class User < ApplicationRecord
   geocoded_by :location
   after_validation :geocode, if: :will_save_change_to_location?
 
+  acts_as_token_authenticatable
+
   validates :email, :first_name, :gender, :age, :description, :location, presence: true
 end

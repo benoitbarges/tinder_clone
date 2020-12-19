@@ -8,10 +8,11 @@
   height: 82vh;
   border-radius: $border-radius;
   padding: 8%;
+  box-shadow: $box-shadow;
 
   .like-card-photo {
-    width: 110%;
-    height: 76%;
+    width: 110% !important;
+    height: 70% !important;
     object-fit: cover;
     border-radius: $border-radius;
     transform: translate(-4%, -3%);

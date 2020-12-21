@@ -1,6 +1,6 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { createLike } from '../actions/likes'
+import { createLike } from '../actions/currentUser'
 
 export default function LikeCard() {
   const dispatch = useDispatch()
@@ -14,12 +14,12 @@ export default function LikeCard() {
     .filter(id => !given_likes_to.includes(id))
     .filter(id => id !== currentUser.id)
 
-    console.log(unliked)
+    console.log('unliked:', unliked)
 
   const firstUserToLike = users[unliked[0]]
 
   const handleClick = () => {
-    dispatch(createLike(currentUser, unliked[0].id))
+    dispatch(createLike(currentUser, unliked[0]))
   }
 
   if (loading || unliked.length === 0) {

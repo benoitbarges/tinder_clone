@@ -47,7 +47,11 @@ export default function LikeCard() {
 
   return (
     <div className='like-card'>
-      <img src={firstUserToLike.photos[0]} alt="yes" className='like-card-photo' />
+      <img
+        src={firstUserToLike.photos[0]}
+        alt={`${firstUserToLike.first_name}'s photo`}
+        className='like-card-photo'
+      />
       <div className='infos'>
         <h3 className='name mt-2'>{firstUserToLike.first_name}</h3>
         <p className='description'>{firstUserToLike.description}</p>

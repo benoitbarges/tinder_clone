@@ -7,6 +7,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import Profile from './Profile'
 import Navbar from './Navbar'
 import LikeCard from './LikeCard'
+import Matches from './Matches'
 
 export default function App () {
   const dispatch = useDispatch()
@@ -26,6 +27,7 @@ export default function App () {
         <Switch>
           <Route exact path='/' component={LikeCard} />
           <Route  path='/profile' component={Profile} />
+          <Route  path='/matches' component={Matches} />
         </Switch>
       }
       <Navbar />

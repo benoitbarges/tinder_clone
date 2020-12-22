@@ -48,18 +48,25 @@ export default function LikeCard() {
   return (
     <div className='like-card'>
       <img src={firstUserToLike.photos[0]} alt="yes" className='like-card-photo' />
-      <button
-        onClick={handleLike}
-        className='like-card-btn'
-      >
-        <FaHeart />
-      </button>
-      <button
-        onClick={handleDislike}
-        className='like-card-btn'
-      >
-        <CgClose style={{color: 'black'}} />
-      </button>
+      <div className='infos'>
+        <h3 className='name mt-2'>{firstUserToLike.first_name}</h3>
+        <p className='description'>{firstUserToLike.description}</p>
+      </div>
+
+      <div className='buttons'>
+        <button
+          onClick={handleLike}
+          className='like-card-btn mr-2'
+        >
+          <FaHeart style={{color: '#B643B2', fontSize: '22px'}}/>
+        </button>
+        <button
+          onClick={handleDislike}
+          className='like-card-btn'
+        >
+          <CgClose style={{color: '#363636', fontSize: '32px'}} />
+        </button>
+      </div>
     </div>
   )
 }

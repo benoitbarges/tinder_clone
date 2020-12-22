@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   root to: 'pages#app'
 
   get '/profile', to: 'pages#app'
+  get '/matches', to: 'pages#app'
 
   # API routing
   namespace :api, defaults: { format: :json } do

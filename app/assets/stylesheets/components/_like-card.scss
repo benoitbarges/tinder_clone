@@ -7,14 +7,30 @@
   width: 86vw;
   height: 82vh;
   border-radius: $border-radius;
-  padding: 8%;
+  padding: 4%;
   box-shadow: $box-shadow;
+  text-align: center;
 
   .like-card-photo {
-    width: 110% !important;
-    height: 70% !important;
+    width: 97% !important;
+    height: 64% !important;
     object-fit: cover;
     border-radius: $border-radius;
-    transform: translate(-4%, -3%);
+    transform: translate(1.5%, 1%);
+  }
+
+  .infos {
+    .name {
+      color: $black;
+    }
+    .description {
+      color: $gray;
+      font-size: 14px;
+    }
+  }
+
+  .buttons {
+    display: flex;
+    place-content: center;
   }
 }

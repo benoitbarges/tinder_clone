@@ -1,6 +1,8 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { createLike } from '../actions/currentUser'
+import { FaHeart } from 'react-icons/fa'
+import { CgClose } from 'react-icons/cg'
 
 export default function LikeCard() {
   const dispatch = useDispatch()
@@ -29,7 +31,15 @@ export default function LikeCard() {
   return (
     <div className='like-card'>
       <img src={firstUserToLike.photos[0]} alt="yes" className='like-card-photo' />
-      <button onClick={handleClick}>Like</button>
+      <button
+        onClick={handleClick}
+        className='like-card-btn'
+      >
+        <FaHeart />
+      </button>
+      <button className='like-card-btn'>
+        <CgClose style={{color: 'black'}} />
+      </button>
     </div>
   )
 }

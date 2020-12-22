@@ -4,11 +4,15 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_many :given_likes, class_name: 'Like', foreign_key: 'user_id'
-  has_many :received_likes, class_name: 'Like', foreign_key: 'receiver_id'
-  has_many :user_matches
+  has_many :given_likes, class_name: 'Like', foreign_key: 'user_id', dependent: :destroy
+  has_many :received_likes, class_name: 'Like', foreign_key: 'receiver_id', dependent: :destroy
+
+  has_many :given_dislikes, class_name: 'Dislike', foreign_key: 'user_id', dependent: :destroy
+  has_many :received_dislikes, class_name: 'Dislike', foreign_key: 'receiver_id', dependent: :destroy
+
+  has_many :user_matches, dependent: :destroy
   has_many :matches, through: :user_matches
-  has_many :messages
+  has_many :messages, dependent: :destroy
 
   has_many_attached :photos
 

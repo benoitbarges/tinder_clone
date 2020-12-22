@@ -3,6 +3,7 @@ photos = []
 hash_infos = {
                 matches: current_user.matches,
                 given_likes_to: current_user.given_likes.map(&:receiver_id),
+                given_dislikes_to: current_user.given_dislikes.map(&:receiver_id),
                 received_likes_from: current_user.received_likes.map(&:user),
                 messages: current_user.messages,
                 photos: photos

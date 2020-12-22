@@ -9,10 +9,8 @@ Rails.application.routes.draw do
   # API routing
   namespace :api, defaults: { format: :json } do
 
-    resources :messages
-    resources :user_matches
-    resources :matches
     resources :likes, only: [:create]
+    resources :dislikes, only: [:create]
 
     resources :users, only: [:index]
     get 'current', to: 'users#current'

@@ -1,6 +1,6 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { createLike } from '../actions/currentUser'
+import { createLike, createDislike } from '../actions/currentUser'
 import { FaHeart } from 'react-icons/fa'
 import { CgClose } from 'react-icons/cg'
 
@@ -8,36 +8,56 @@ export default function LikeCard() {
   const dispatch = useDispatch()
   const users = useSelector(state => state.users)
   const currentUser = useSelector(state => state.currentUser)
-  const loading = useSelector(state => state.user === null)
 
-  const { given_likes_to } = currentUser
+  const [unliked, setUnliked] = React.useState(null)
+  const [firstUserToLike, setFirstUserToLike] = React.useState(null)
 
-  const unliked = Object.keys(users).map(id => parseInt(id))
-    .filter(id => !given_likes_to.includes(id))
-    .filter(id => id !== currentUser.id)
+  console.log('unliked >>>>', unliked)
+  console.log('firstUserToLike >>>>', firstUserToLike)
 
-    console.log('unliked:', unliked)
+  const { given_likes_to, given_dislikes_to } = currentUser
 
-  const firstUserToLike = users[unliked[0]]
+  React.useEffect(() => {
+    if (Object.keys(users).length !== 0) {
+      const unliked = Object.keys(users).map(id => parseInt(id))
+      .filter(id => !given_likes_to.includes(id))
+      .filter(id => !given_dislikes_to.includes(id))
+      .filter(id => id !== currentUser.id)
 
-  const handleClick = () => {
+      setUnliked(unliked)
+      setFirstUserToLike(users[unliked[0]])
+    }
+  }, [users, currentUser])
+
+  const handleLike = () => {
     dispatch(createLike(currentUser, unliked[0]))
   }
 
-  if (loading || unliked.length === 0) {
-    return <div></div>
+  const handleDislike = () => {
+    dispatch(createDislike(currentUser, unliked[0]))
+  }
+
+  if (unliked && unliked.length === 0) {
+    return <div>No more person to like</div>
+  }
+
+  if (!unliked || !firstUserToLike ) {
+    return <div>loading</div>
   }
 
   return (
     <div className='like-card'>
       <img src={firstUserToLike.photos[0]} alt="yes" className='like-card-photo' />
       <button
-        onClick={handleClick}
+        onClick={handleLike}
         className='like-card-btn'
       >
         <FaHeart />
       </button>
-      <button className='like-card-btn'>
+      <button
+        onClick={handleDislike}
+        className='like-card-btn'
+      >
         <CgClose style={{color: 'black'}} />
       </button>
     </div>

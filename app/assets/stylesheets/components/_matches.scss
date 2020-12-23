@@ -12,6 +12,11 @@
     box-shadow: $box-shadow;
     border-radius: $border-radius;
     text-align: center;
+    padding: 1%;
+
+    .name {
+      margin-top: 6%;
+    }
   }
 
   .match-photo {

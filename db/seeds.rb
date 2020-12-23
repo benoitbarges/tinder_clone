@@ -13,7 +13,7 @@ mike = User.create!(
   gender: 'man',
   location: 'San Fransisco'
 )
-mike.photos.attach(io: File.open("app/assets/images/avatars/mike.jpeg"), filename: "avatar.jpeg", content_type: "image/jpeg")
+mike.photo.attach(io: File.open("app/assets/images/avatars/mike.jpeg"), filename: "avatar.jpeg", content_type: "image/jpeg")
 
 puts "#{mike.first_name} created !"
 
@@ -26,7 +26,7 @@ john = User.create!(
   gender: 'man',
   location: 'New York'
 )
-john.photos.attach(io: File.open("app/assets/images/avatars/john.jpeg"), filename: "avatar.jpeg", content_type: "image/jpeg")
+john.photo.attach(io: File.open("app/assets/images/avatars/john.jpeg"), filename: "avatar.jpeg", content_type: "image/jpeg")
 
 puts "#{john.first_name} created !"
 
@@ -39,7 +39,7 @@ emilie = User.create!(
   gender: 'woman',
   location: 'San Fransisco'
 )
-emilie.photos.attach(io: File.open("app/assets/images/avatars/emilie.jpeg"), filename: "avatar.jpeg", content_type: "image/jpeg")
+emilie.photo.attach(io: File.open("app/assets/images/avatars/emilie.jpeg"), filename: "avatar.jpeg", content_type: "image/jpeg")
 
 puts "#{emilie.first_name} created !"
 
@@ -52,6 +52,6 @@ fanny = User.create!(
   gender: 'woman',
   location: 'New York'
 )
-fanny.photos.attach(io: File.open("app/assets/images/avatars/fanny.jpeg"), filename: "avatar.jpeg", content_type: "image/jpeg")
+fanny.photo.attach(io: File.open("app/assets/images/avatars/fanny.jpeg"), filename: "avatar.jpeg", content_type: "image/jpeg")
 
 puts "#{fanny.first_name} created !"

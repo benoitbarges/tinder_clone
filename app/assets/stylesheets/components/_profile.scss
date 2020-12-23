@@ -10,14 +10,14 @@
   .profile-infos {
     background: white;
     position: absolute;
-    top: 134%;
+    top: 124%;
     left: 50%;
     transform: translate(-50%, -50%);
     width: 86vw;
-    height: 84%;
-    border-radius: $border-radius;
+    height: 68%;
+    border-radius: 6px;
     padding: 6%;
-    box-shadow: $box-shadow;
+    box-shadow: 0px 0px 8px 1px rgba(0, 0, 0, 0.2);
   }
 }
 

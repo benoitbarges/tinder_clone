@@ -26,8 +26,11 @@ export default function App () {
       {!loading &&
         <Switch>
           <Route exact path='/' component={LikeCard} />
-          <Route  path='/profile' component={Profile} />
-          <Route  path='/matches' component={Matches} />
+          <Route exact path='/profile' component={Profile} />
+          <Route path='/profile/:id'>
+            <Profile buttonText='Start chating' />
+          </Route>
+          <Route path='/matches' component={Matches} />
         </Switch>
       }
       <Navbar />

@@ -48,7 +48,7 @@ export default function LikeCard() {
   return (
     <div className='like-card'>
       <img
-        src={firstUserToLike.photos[0]}
+        src={firstUserToLike.photo}
         alt={`${firstUserToLike.first_name}'s photo`}
         className='like-card-photo'
       />

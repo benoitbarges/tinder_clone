@@ -1,9 +1,6 @@
-photos = []
-@user.photos.each { |photo| photos << rails_blob_path(photo) }
-
 matches = current_user.matches.map do |match|
   user_matched = match.match_with.find { |user| user.id != current_user.id}
-  match.as_json.merge({ match_with: user_matched.as_json.merge({ photo: rails_blob_path(user_matched.photos.first) })})
+  match.as_json.merge({ match_with: user_matched.as_json.merge({ photo: rails_blob_path(user_matched.photo) })})
 end
 
 hash_infos = {
@@ -12,7 +9,7 @@ hash_infos = {
                 given_dislikes_to: current_user.given_dislikes.map(&:receiver_id),
                 received_likes_from: current_user.received_likes.map(&:user),
                 messages: current_user.messages,
-                photos: photos
+                photo: rails_blob_path(@user.photo)
               }
 hash = @user.as_json.merge(hash_infos)
 json.merge! hash

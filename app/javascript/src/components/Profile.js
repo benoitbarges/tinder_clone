@@ -12,15 +12,14 @@ export default function Profile({ buttonText }) {
   const [user, setUser] = React.useState(null)
 
   const userMatched = currentUser.matches.find(match => match.match_with.id === parseInt(id))?.match_with
-  console.log('match', userMatched)
 
   React.useEffect(() => {
     setUser(id
       ? userMatched
       : currentUser)
-  }, [id, users])
+  }, [id])
 
-  if (!userMatched) {
+  if (!userMatched && user !== currentUser) {
     return <h1>It seems you didn't match this user !</h1>
   }
 

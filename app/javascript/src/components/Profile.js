@@ -2,7 +2,7 @@ import React from 'react'
 import { useSelector } from 'react-redux'
 import { BiMap } from 'react-icons/bi'
 import PropTypes from 'prop-types'
-import { useParams } from 'react-router-dom'
+import { useParams, useRouteMatch } from 'react-router-dom'
 
 export default function Profile({ buttonText }) {
   const currentUser = useSelector(state => state.currentUser)
@@ -11,15 +11,18 @@ export default function Profile({ buttonText }) {
   const { id } = useParams()
   const [user, setUser] = React.useState(null)
 
+  const userMatched = currentUser.matches.find(match => match.match_with.id === parseInt(id))?.match_with
+  console.log('match', userMatched)
+
   React.useEffect(() => {
-    if (id) {
-      console.log(currentUser.matches.find(match => match.match_with.id === parseInt(id)).match_with)
-    }
     setUser(id
-      ? currentUser.matches.find(match => match.match_with.id === parseInt(id)).match_with
+      ? userMatched
       : currentUser)
   }, [id, users])
 
+  if (!userMatched) {
+    return <h1>It seems you didn't match this user !</h1>
+  }
 
   if (!user) {
     return <h1>Loading...</h1>

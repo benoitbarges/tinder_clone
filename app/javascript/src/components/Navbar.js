@@ -6,10 +6,8 @@ import { MdAccountCircle } from 'react-icons/md'
 
 
 export default function Navbar() {
-  const match = useRouteMatch()
   const { pathname } = useLocation()
 
-  console.log(match)
   return (
     <nav id='navbar' className='d-flex justify-content-around align-items-center'>
       <NavLink exact to='/' activeClassName='active-navlink' className=' navlink d-flex flex-column align-items-center'>

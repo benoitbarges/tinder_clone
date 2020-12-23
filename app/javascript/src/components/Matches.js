@@ -6,12 +6,12 @@ export default function Matches() {
   const currentUser = useSelector(state => state.currentUser)
   const users = useSelector(state => state.users)
 
-  const { path } = useRouteMatch()
+  const { path, url } = useRouteMatch()
 
   return (
     <div className='matches-grid'>
       {currentUser.matches.map(({ match_with }) => (
-        <Link to={`${path}/profile/${match_with.id}`} className='match-card' key={match_with.id}>
+        <Link to={`/profile/${match_with.id}`} className='match-card' key={match_with.id}>
           <img
             src={match_with.photo}
             alt={`${match_with.first_name}'s photo`}

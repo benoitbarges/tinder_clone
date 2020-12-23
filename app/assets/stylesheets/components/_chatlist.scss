@@ -1,0 +1,19 @@
+#chatlist {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+
+  .chat {
+    height: 70px;
+    margin: 10px 0;
+    display: flex;
+  }
+
+  .chat-avatar {
+    height: 70px;
+    width: 70px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+}

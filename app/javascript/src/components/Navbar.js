@@ -16,8 +16,8 @@ export default function Navbar() {
       </NavLink>
 
       <NavLink
-        to='/matches'
-        isActive={() => ['/matches', '/profile/'].some(url => pathname.includes(url))}
+        to='/match-list'
+        isActive={() => ['/match-list', '/profile/'].some(url => pathname.includes(url))}
         activeClassName='active-navlink'
         className=' navlink d-flex flex-column align-items-center'
         >
@@ -25,7 +25,12 @@ export default function Navbar() {
           <h6 className='mb-0 mt-2'>MATCHES</h6>
       </NavLink>
 
-      <NavLink to='/chat' activeClassName='active-navlink' className=' navlink d-flex flex-column align-items-center'>
+      <NavLink
+        to='/chat'
+        isActive={() => ['/chat', '/matches'].some(url => pathname.includes(url))}
+        activeClassName='active-navlink'
+        className=' navlink d-flex flex-column align-items-center'
+      >
         <BsChatFill />
         <h6 className='mb-0 mt-2'>CHAT</h6>
       </NavLink>

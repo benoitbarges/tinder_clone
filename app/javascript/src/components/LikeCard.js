@@ -12,9 +12,6 @@ export default function LikeCard() {
   const [unliked, setUnliked] = React.useState(null)
   const [firstUserToLike, setFirstUserToLike] = React.useState(null)
 
-  console.log('unliked >>>>', unliked)
-  console.log('firstUserToLike >>>>', firstUserToLike)
-
   const { given_likes_to, given_dislikes_to } = currentUser
 
   React.useEffect(() => {

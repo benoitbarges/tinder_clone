@@ -1,6 +1,9 @@
 matches = current_user.matches.map do |match|
   user_matched = match.match_with.find { |user| user.id != current_user.id}
-  match.as_json.merge({ match_with: user_matched.as_json.merge({ photo: rails_blob_path(user_matched.photo) })})
+  match.as_json.merge({
+                        match_with: user_matched.as_json.merge({ photo: rails_blob_path(user_matched.photo) }),
+                        messages: match.messages
+                      })
 end
 
 hash_infos = {

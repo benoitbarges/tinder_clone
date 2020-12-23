@@ -8,6 +8,8 @@ import Profile from './Profile'
 import Navbar from './Navbar'
 import LikeCard from './LikeCard'
 import Matches from './Matches'
+import ChatList from './ChatList'
+import Match from './Match'
 
 export default function App () {
   const dispatch = useDispatch()
@@ -30,7 +32,9 @@ export default function App () {
           <Route path='/profile/:id'>
             <Profile buttonText='Start chating' />
           </Route>
-          <Route path='/matches' component={Matches} />
+          <Route path='/match-list' component={Matches} />
+          <Route path='/matches/:id' component={Match} />
+          <Route path='/chat' component={ChatList} />
         </Switch>
       }
       <Navbar />

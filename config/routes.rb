@@ -13,13 +13,13 @@ Rails.application.routes.draw do
   # API routing
   namespace :api, defaults: { format: :json } do
 
-    resources :likes, only: [:create]
+    resources :likes, only: :create
 
-    resources :dislikes, only: [:create]
+    resources :dislikes, only: :create
 
-    resources :matches, only: :show
+    resources :matches, only: [:create, :show]
 
-    resources :users, only: [:index]
+    resources :users, only: :index
     get 'current', to: 'users#current'
   end
 end

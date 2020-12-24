@@ -1,6 +1,7 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { createLike, createDislike } from '../actions/currentUser'
+import { createMatch } from '../actions/matches'
 import { FaHeart } from 'react-icons/fa'
 import { CgClose } from 'react-icons/cg'
 
@@ -23,11 +24,15 @@ export default function LikeCard() {
 
       setUnliked(unliked)
       setFirstUserToLike(users[unliked[0]])
+      // console.log(users[unliked[0]].given_likes_to.includes(currentUser.id))
     }
   }, [users, currentUser])
 
+
   const handleLike = () => {
+    dispatch(createMatch(currentUser))
     dispatch(createLike(currentUser, unliked[0]))
+
   }
 
   const handleDislike = () => {

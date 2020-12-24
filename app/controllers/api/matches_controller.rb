@@ -4,7 +4,7 @@ class Api::MatchesController < Api::BaseController
     @match = Match.new
     authorize @match
     if @match.save
-      render json: @match
+      render :show
     else
       render_error
     end
@@ -13,7 +13,6 @@ class Api::MatchesController < Api::BaseController
   def show
     @match = Match.find(params[:id])
     authorize @match
-    render json: @match
   end
 
   private
